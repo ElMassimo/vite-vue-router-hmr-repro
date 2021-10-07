@@ -1,8 +1,6 @@
 # vue-hmr-repro
 
-A regression was [introduced in 3.2.11](https://github.com/vuejs/vue-next/commit/aa8908a8543c5151a2cc06ed4d8fab3a1461692a#diff-ccebe74771d12151844d4d2de4cf16c6f7fb7ed6584d30964dae54a23454a942L117). [`3.2.10` behaves as expected](https://github.com/ElMassimo/vite-vue-router-hmr-repro/tree/3.2.10).
-
-HMR only works if the component has an active instance.
+HMR only works if the component has an active instance. A regression was [introduced in 3.2.11](https://github.com/vuejs/vue-next/commit/aa8908a8543c5151a2cc06ed4d8fab3a1461692a#diff-ccebe74771d12151844d4d2de4cf16c6f7fb7ed6584d30964dae54a23454a942L117). [`3.2.10` behaves as expected](https://github.com/ElMassimo/vite-vue-router-hmr-repro/tree/3.2.10).
 
 Most users experience this issue when using `vue-router`, as no full reload occurs, and is not unusual to navigate between pages.
 
