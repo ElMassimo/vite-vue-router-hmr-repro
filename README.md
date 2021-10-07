@@ -1,8 +1,12 @@
-# vue-router-hmr-repro
+# vue-hmr-repro
 
-Reproduction of https://github.com/vitejs/vite/issues/131.
+A regression was [introduced in 3.2.11](https://github.com/vuejs/vue-next/commit/aa8908a8543c5151a2cc06ed4d8fab3a1461692a#diff-ccebe74771d12151844d4d2de4cf16c6f7fb7ed6584d30964dae54a23454a942L117). [`3.2.10` behaves as expected](https://github.com/ElMassimo/vite-vue-router-hmr-repro/tree/3.2.10).
 
-The bug occurs both for statically and dynamically imported components.
+HMR only works if the component has an active instance.
+
+Most users experience this issue when using `vue-router`, as no full reload occurs, and is not unusual to navigate between pages.
+
+It can happen in different scenarios, for example, a component that is conditionally displayed. If the user modifies the component file when the condition is false, and then the condition becomes true, the rendered component is outdated and won't reflect current changes until a page reload or another HMR update is sent.
 
 ## Replication Steps
 
